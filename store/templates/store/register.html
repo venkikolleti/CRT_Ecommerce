@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+<title>{% block title %}e-SHOP | Register{% endblock title %}</title>
+{% block content %}
+<div class="row">
+  <div class="col-lg-6 offset-lg-3">
+    <div class="box-element" id="form-wrapper">
+      <h2>Register</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-field">
+          <input required class="form-control" type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-field">
+          <input required class="form-control" type="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-field">
+          <input required class="form-control" type="password" name="password1" placeholder="Password">
+        </div>
+        <div class="form-field">
+          <input required class="form-control" type="password" name="password2" placeholder="Confirm Password">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success btn-block">Register</button>
+      </form>
+      <br>
+      <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+  </div>
+</div>
+{% endblock content %}
